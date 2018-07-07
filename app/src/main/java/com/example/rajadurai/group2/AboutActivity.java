@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,16 +39,32 @@ public class AboutActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String image = intent.getStringExtra("imageName");
         getMachineInfo(image);
-        Toast.makeText(this, items.toString(), Toast.LENGTH_LONG).show();
-        videoLink = (TextView) findViewById(R.id.video);
-        videoLink.setText(items.get("video").get(0));
-        videoLink.setOnClickListener(new View.OnClickListener() {
+        TextView name = (TextView) findViewById(R.id.machine_name);
+        name.setText(items.get("name").get(0));
+        ListView videosList=(ListView)findViewById(R.id.videoview);
+        ListView documentList=(ListView)findViewById(R.id.documentview);
+        final ArrayAdapter videoAdapter = new ArrayAdapter(AboutActivity.this, R.layout.video_item, items.get("video"));
+        final ArrayAdapter documentAdapter = new ArrayAdapter(this, R.layout.document_item, items.get("file"));
+        videosList.setAdapter(videoAdapter);
+        documentList.setAdapter(documentAdapter);
+        ListUtils.setDynamicHeight(videosList);
+        ListUtils.setDynamicHeight(documentList);
+        videosList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                String link = (String) videoLink.getText();
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String value = (String) videoAdapter.getItem(i);
                 Intent webIntent = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse(link));
+                        Uri.parse(value));
                 startActivity(webIntent);
+            }
+        });
+        documentList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String value = (String) documentAdapter.getItem(i);
+                Intent intent = new Intent(AboutActivity.this, ViewPdfActivity.class);
+                intent.putExtra("pdf", value);
+                startActivity(intent);
             }
         });
 
@@ -99,4 +120,24 @@ public class AboutActivity extends AppCompatActivity {
     }
 
 
+    public static class ListUtils {
+        public static void setDynamicHeight(ListView mListView) {
+            ListAdapter mListAdapter = mListView.getAdapter();
+            if (mListAdapter == null) {
+                // when adapter is null
+                return;
+            }
+            int height = 0;
+            int desiredWidth = View.MeasureSpec.makeMeasureSpec(mListView.getWidth(), View.MeasureSpec.UNSPECIFIED);
+            for (int i = 0; i < mListAdapter.getCount(); i++) {
+                View listItem = mListAdapter.getView(i, null, mListView);
+                listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+                height += listItem.getMeasuredHeight();
+            }
+            ViewGroup.LayoutParams params = mListView.getLayoutParams();
+            params.height = height + (mListView.getDividerHeight() * (mListAdapter.getCount() - 1));
+            mListView.setLayoutParams(params);
+            mListView.requestLayout();
+        }
+    }
 }
