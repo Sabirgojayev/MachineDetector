@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -21,7 +22,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class AboutActivity extends AppCompatActivity {
-    HashMap<String, String> items = new HashMap<String, String>();
+    HashMap<String, ArrayList<String>> items = new HashMap<String, ArrayList<String>>();
     TextView videoLink;
 
     @Override
@@ -35,8 +36,7 @@ public class AboutActivity extends AppCompatActivity {
         getMachineInfo(image);
         Toast.makeText(this, items.toString(), Toast.LENGTH_LONG).show();
         videoLink = (TextView) findViewById(R.id.video);
-        videoLink.setText(items.get("video"));
-        Toast.makeText(this, items.get("video"), Toast.LENGTH_SHORT).show();
+        videoLink.setText(items.get("video").get(0));
         videoLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,10 +90,12 @@ public class AboutActivity extends AppCompatActivity {
     }
     private void addMachineInfo(String tag, Element element) {
         NodeList nodeList = element.getElementsByTagName(tag);
+        ArrayList<String> nodes = new ArrayList<String>();
         for (int i = 0; i < nodeList.getLength(); i++) {
             Element node = (Element) nodeList.item(i);
-            items.put(tag, node.getTextContent());
+            nodes.add(node.getTextContent());
         }
+        items.put(tag, nodes);
     }
 
 
