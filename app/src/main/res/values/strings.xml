@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Group 2</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_view_pdf">ViewPdfActivity</string>
+</resources>
