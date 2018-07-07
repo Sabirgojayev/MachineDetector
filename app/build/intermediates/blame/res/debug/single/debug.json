@@ -536,10 +536,6 @@
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d31c7b5bcaeb72821df5bc84dcaa2439/res/drawable/abc_seekbar_tick_mark_material.xml"
     },
     {
-        "merged": "/home/sabir/Downloads/Group2/app/build/intermediates/res/merged/debug/layout_content_about.xml.flat",
-        "source": "/home/sabir/Downloads/Group2/app/src/main/res/layout/content_about.xml"
-    },
-    {
         "merged": "/home/sabir/Downloads/Group2/app/build/intermediates/res/merged/debug/drawable-v24_ic_launcher_foreground.xml.flat",
         "source": "/home/sabir/Downloads/Group2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml"
     },

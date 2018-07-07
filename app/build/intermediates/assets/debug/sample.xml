@@ -1,24 +1,26 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<PurchaseOrder>
-    <OrderId>5</OrderId>
-    <CustomerId>0275125</CustomerId>
-    <Email>mysamplecode@gmail.com</Email>
-    <OrderItemDetail>
-        <LineNumber>1</LineNumber>
-        <ProductSku>12010109Y</ProductSku>
-        <Quantity>2.00</Quantity>
-        <Price>7.99</Price>
-    </OrderItemDetail>
-    <OrderItemDetail>
-        <LineNumber>2</LineNumber>
-        <ProductSku>12010109B</ProductSku>
-        <Quantity>900</Quantity>
-        <Price>83.50</Price>
-    </OrderItemDetail>
-    <OrderItemDetail>
-        <LineNumber>3</LineNumber>
-        <ProductSku>11271581Y</ProductSku>
-        <Quantity>16.00</Quantity>
-        <Price>8.99</Price>
-    </OrderItemDetail>
-</PurchaseOrder>
+<?xml version="1.0"?>
+<records>
+    <employee>
+        <name>Machine</name>
+        <salary>50000</salary>
+        <image>earth</image>
+        <image>two</image>
+        <image>three</image>
+        <file>tutorial1.pdf</file>
+        <file>tutorial2.pdf</file>
+        <video>https://www.youtube.com/watch?v=Q7SQtB9Mox0</video>
+    </employee>
+    <employee>
+        <name>Rahul Kumar</name>
+        <image>earth.jpg</image>
+        <image>two</image>
+        <image>three</image>
+        <file>tutorial1.pdf</file>
+        <file>tutorial2.pdf</file>
+        <video>https://www.youtube.com/watch?v=Q7SQtB9Mox0</video>
+    </employee>
+    <employee>
+        <name>John Mike</name>
+        <salary>70000</salary>
+    </employee>
+</records>
