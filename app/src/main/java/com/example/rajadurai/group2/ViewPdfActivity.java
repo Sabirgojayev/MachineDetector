@@ -26,7 +26,7 @@ public class ViewPdfActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String filename = intent.getStringExtra("pdf");
         pdfView = findViewById(R.id.pdfView);
-        pdfView.fromAsset("Class_2__Basic_Text_Processing.pdf").load();
+        pdfView.fromAsset(filename).load();
 
     }
 

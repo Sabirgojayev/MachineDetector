@@ -88,12 +88,12 @@
         "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d31c7b5bcaeb72821df5bc84dcaa2439/res/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
-        "merged": "/home/sabir/Downloads/Group2/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
-        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d31c7b5bcaeb72821df5bc84dcaa2439/res/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png"
-    },
-    {
         "merged": "/home/sabir/Downloads/Group2/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/097dcd9a85af80d325f3baba17f4abe2/res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "/home/sabir/Downloads/Group2/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
+        "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d31c7b5bcaeb72821df5bc84dcaa2439/res/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png"
     },
     {
         "merged": "/home/sabir/Downloads/Group2/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
@@ -334,6 +334,10 @@
     {
         "merged": "/home/sabir/Downloads/Group2/app/build/intermediates/res/merged/debug/layout-v21_notification_action.xml.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/097dcd9a85af80d325f3baba17f4abe2/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/home/sabir/Downloads/Group2/app/build/intermediates/res/merged/debug/layout_video_item.xml.flat",
+        "source": "/home/sabir/Downloads/Group2/app/src/main/res/layout/video_item.xml"
     },
     {
         "merged": "/home/sabir/Downloads/Group2/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_text_select_handle_right_mtrl_light.png.flat",
@@ -1190,6 +1194,10 @@
     {
         "merged": "/home/sabir/Downloads/Group2/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_design_ic_visibility_off.png.flat",
         "source": "/root/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/7d4138bd8b4de0a06c756516328cdd1e/res/drawable-xxxhdpi-v4/design_ic_visibility_off.png"
+    },
+    {
+        "merged": "/home/sabir/Downloads/Group2/app/build/intermediates/res/merged/debug/layout_document_item.xml.flat",
+        "source": "/home/sabir/Downloads/Group2/app/src/main/res/layout/document_item.xml"
     },
     {
         "merged": "/home/sabir/Downloads/Group2/app/build/intermediates/res/merged/debug/drawable-watch-v20_abc_dialog_material_background.xml.flat",

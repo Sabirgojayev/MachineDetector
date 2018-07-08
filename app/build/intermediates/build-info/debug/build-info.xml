@@ -1,37 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="arm64-v8a,armeabi-v7a,armeabi"
-    api-level="26"
+    abi="x86"
+    api-level="28"
     build-mode="COLD"
     density="420dpi"
     format="10"
+    ir-eligibility="R_CLASS_CHANGE"
     plugin-version="3.1.3"
-    timestamp="1530963422022"
+    timestamp="1530983388259"
     token="-2814711071689415315"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="1224" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="508" />
     <task
         name="verifier"
-        duration="0" />
+        duration="289" />
+
+    <artifact
+        location="/home/sabir/Downloads/Group2/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+        type="SPLIT" />
+    <artifact
+        location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+        type="SPLIT" />
 
     <build
         build-mode="FULL"
-        timestamp="1530962919892"
+        timestamp="1530980458710"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
             type="SPLIT" />
         <artifact
             location="/home/sabir/Downloads/Group2/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
@@ -70,45 +102,7 @@
     <build
         build-mode="COLD"
         ir-eligibility="CLASS_ADDED"
-        timestamp="1530963208218"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="/home/sabir/Downloads/Group2/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
-            type="SPLIT" />
-        <artifact
-            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
-            type="SPLIT" />
-        <artifact
-            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
-            type="SPLIT" />
-        <artifact
-            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
-            type="SPLIT" />
-        <artifact
-            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
-            type="SPLIT" />
-        <artifact
-            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
-            type="SPLIT" />
-        <artifact
-            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
-            type="SPLIT" />
-        <artifact
-            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
-            type="SPLIT" />
-    </build>
-    <build
-        build-mode="COLD"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1530963354194"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
-            type="SPLIT" />
-    </build>
-    <build
-        build-mode="COLD"
-        timestamp="1530963396745"
+        timestamp="1530983087218"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/home/sabir/Downloads/Group2/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
@@ -116,7 +110,39 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1530963422022"
-        verifier="COLD_SWAP_REQUESTED" />
+        ir-eligibility="R_CLASS_CHANGE"
+        timestamp="1530983388259"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/home/sabir/Downloads/Group2/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="/home/sabir/Downloads/Group2/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            type="SPLIT" />
+    </build>
 
 </instant-run>
