@@ -18,22 +18,25 @@ public class PrefSingleton {
     public static void editSharePrefs(String key, String value, Context act) {
         SharedPreferences.Editor editor = act.getSharedPreferences(machineList, Context.MODE_PRIVATE).edit();
         SharedPreferences prefs = act.getSharedPreferences(machineList, Context.MODE_PRIVATE);
-        Set<String> machines = prefs.getStringSet(key, new HashSet<String>());
+        Set<String> machines = new HashSet<String>(prefs.getStringSet(key, new HashSet<String>()));
         machines.add(value);
         editor.putStringSet(key, machines);
         editor.apply();
+        System.out.println(machines);
+        System.out.println(prefs.getStringSet(key, new HashSet<String>()));
     }
 
     public static Set<String> getSharePrefs(String key, Context act) {
         SharedPreferences prefs = act.getSharedPreferences(machineList, Context.MODE_PRIVATE);
-        return prefs.getStringSet(key, null);
+        return prefs.getStringSet(key, new HashSet<String>());
     }
 
     public static void removeMachineFromHistory (String key, String value, Context act) {
         SharedPreferences.Editor editor = act.getSharedPreferences(machineList, Context.MODE_PRIVATE).edit();
         SharedPreferences prefs = act.getSharedPreferences(machineList, Context.MODE_PRIVATE);
-        Set<String> machines = prefs.getStringSet(key, new HashSet<String>());
+        HashSet<String> machines = new HashSet<String>(prefs.getStringSet(key, new HashSet<String>()));
         machines.remove(value);
+        editor.remove(key);
         editor.putStringSet(key, machines);
         editor.apply();
     }

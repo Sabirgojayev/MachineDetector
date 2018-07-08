@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -38,6 +39,8 @@ public class AboutActivity extends AppCompatActivity {
     ArrayAdapter videoAdapter;
     ArrayAdapter documentAdapter;
     File file;
+    private final  int Image_Info = 0;
+    private final  int Name_Info = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +68,7 @@ public class AboutActivity extends AppCompatActivity {
         });
 
     }
-    private void getMachineInfo(String image) {
+    private void getMachineInfo(String value, int mode) {
 
         try {
             InputStream is = getAssets().open("sample.xml");
@@ -83,11 +86,20 @@ public class AboutActivity extends AppCompatActivity {
                 Node node = nList.item(i);
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     Element element2 = (Element) node;
-                    if (getValue(image, element2)) {
-                        addMachineInfo("file", element2);
-                        addMachineInfo("name", element2);
-                        addMachineInfo("video", element2);
-                        break;
+                    if (mode == Image_Info) {
+                        if (getValueByImage(value, element2)) {
+                            addMachineInfo("file", element2);
+                            addMachineInfo("name", element2);
+                            addMachineInfo("video", element2);
+                            break;
+                        }
+                    } else {
+                        if (getValueByName(value, element2)) {
+                            addMachineInfo("file", element2);
+                            addMachineInfo("name", element2);
+                            addMachineInfo("video", element2);
+                                break;
+                        }
                     }
                 }
             }//end of for loop
@@ -95,11 +107,21 @@ public class AboutActivity extends AppCompatActivity {
         } catch (Exception e) {e.printStackTrace();}
     }
 
-    private boolean getValue(String imageName, Element element) {
+    private boolean getValueByImage(String imageName, Element element) {
         NodeList nodeList = element.getElementsByTagName("image");
         for (int i=0; i<nodeList.getLength(); i++) {
             Element node = (Element) nodeList.item(i);
             if (node.getTextContent().equals(imageName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    private boolean getValueByName(String machineName, Element element) {
+        NodeList nodeList = element.getElementsByTagName("name");
+        for (int i=0; i<nodeList.getLength(); i++) {
+            Element node = (Element) nodeList.item(i);
+            if (node.getTextContent().equals(machineName)) {
                 return true;
             }
         }
@@ -117,8 +139,13 @@ public class AboutActivity extends AppCompatActivity {
 
     private void createLists() {
         Intent intent = getIntent();
+        if (intent.getStringExtra("imageName") != null){
         String image = intent.getStringExtra("imageName");
-        getMachineInfo(image);
+        getMachineInfo(image, Image_Info);
+        } else {
+            String machine_name = intent.getStringExtra("machine");
+            getMachineInfo(machine_name, Name_Info);
+        }
         name = (TextView) findViewById(R.id.machine_name);
         name.setText(items.get("name").get(0));
         videosList=(ListView)findViewById(R.id.videoview);
@@ -151,6 +178,15 @@ public class AboutActivity extends AppCompatActivity {
             mListView.setLayoutParams(params);
             mListView.requestLayout();
         }
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        //Changes 'back' button action
+        if(keyCode==KeyEvent.KEYCODE_BACK)
+        {
+            startActivity(new Intent(this, MainActivity.class));
+        }
+        return true;
     }
 
 

@@ -13,7 +13,7 @@ import com.example.rajadurai.group2.PrefSingleton;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageButton detect;
+    private Button detect;
     private ImageButton help;
     private Button history;
 
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        detect = (ImageButton) findViewById(R.id.imageButton2);
+        detect = (Button) findViewById(R.id.button2);
         detect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
