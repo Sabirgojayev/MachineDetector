@@ -11,8 +11,8 @@ public class HistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.history__activity);
-        PrefSingleton.editSharePrefs("machineOne", "3DPrinter", getApplicationContext());
-        String MachineName = PrefSingleton.getSharePrefs("machineOne", getApplicationContext());
+        PrefSingleton.editSharePrefs("machineOne", "3DPrinter", this);
+        String MachineName = PrefSingleton.getSharePrefs("machineOne", this);
 
         TextView t = (TextView) findViewById(R.id.histextview);
         System.out.println(MachineName);

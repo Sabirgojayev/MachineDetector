@@ -20,9 +20,8 @@ public class PrefSingleton {
     }
 
     public static String getSharePrefs(String key, Context act) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(act);
-       // SharedPreferences prefs = act.getSharedPreferences(machineList, Context.MODE_PRIVATE);
-        return prefs.getString("machineOne", null);
+        SharedPreferences prefs = act.getSharedPreferences(machineList, Context.MODE_PRIVATE);
+        return prefs.getString(key, null);
     }
 
     public static Map<String, String> getAllpreferences(Context act) {

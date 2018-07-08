@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -14,7 +15,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,30 +28,22 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.w3c.dom.Text;
 
 public class AboutActivity extends AppCompatActivity {
     HashMap<String, ArrayList<String>> items = new HashMap<String, ArrayList<String>>();
-    TextView videoLink;
+    TextView name;
+    ListView videosList;
+    ListView documentList;
+    ArrayAdapter videoAdapter;
+    ArrayAdapter documentAdapter;
+    File file;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        Intent intent = getIntent();
-        String image = intent.getStringExtra("imageName");
-        getMachineInfo(image);
-        TextView name = (TextView) findViewById(R.id.machine_name);
-        name.setText(items.get("name").get(0));
-        ListView videosList=(ListView)findViewById(R.id.videoview);
-        ListView documentList=(ListView)findViewById(R.id.documentview);
-        final ArrayAdapter videoAdapter = new ArrayAdapter(AboutActivity.this, R.layout.video_item, items.get("video"));
-        final ArrayAdapter documentAdapter = new ArrayAdapter(this, R.layout.document_item, items.get("file"));
-        videosList.setAdapter(videoAdapter);
-        documentList.setAdapter(documentAdapter);
-        ListUtils.setDynamicHeight(videosList);
-        ListUtils.setDynamicHeight(documentList);
+        createLists();
         videosList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -119,6 +114,22 @@ public class AboutActivity extends AppCompatActivity {
         items.put(tag, nodes);
     }
 
+    private void createLists() {
+        Intent intent = getIntent();
+        String image = intent.getStringExtra("imageName");
+        getMachineInfo(image);
+        name = (TextView) findViewById(R.id.machine_name);
+        name.setText(items.get("name").get(0));
+        videosList=(ListView)findViewById(R.id.videoview);
+        documentList=(ListView)findViewById(R.id.documentview);
+        videoAdapter = new ArrayAdapter(AboutActivity.this, R.layout.video_item, items.get("video"));
+        documentAdapter = new ArrayAdapter(this, R.layout.document_item, items.get("file"));
+        videosList.setAdapter(videoAdapter);
+        documentList.setAdapter(documentAdapter);
+        ListUtils.setDynamicHeight(videosList);
+        ListUtils.setDynamicHeight(documentList);
+    }
+
 
     public static class ListUtils {
         public static void setDynamicHeight(ListView mListView) {
@@ -140,4 +151,6 @@ public class AboutActivity extends AppCompatActivity {
             mListView.requestLayout();
         }
     }
+
+
 }
