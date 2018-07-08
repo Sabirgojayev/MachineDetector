@@ -44,6 +44,7 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         createLists();
+        PrefSingleton.editSharePrefs(PrefSingleton.MACHINE_LIST_KEY, items.get("name").get(0), this);
         videosList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

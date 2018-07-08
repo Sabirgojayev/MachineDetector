@@ -5,17 +5,15 @@ import android.os.Bundle;
 import android.widget.TextView;
 import com.example.rajadurai.group2.PrefSingleton;
 
+import java.util.HashSet;
+
 public class HistoryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.history__activity);
-        PrefSingleton.editSharePrefs("machineOne", "3DPrinter", this);
-        String MachineName = PrefSingleton.getSharePrefs("machineOne", this);
-
-        TextView t = (TextView) findViewById(R.id.histextview);
-        System.out.println(MachineName);
-        t.setText("I am text"+ MachineName);
+        HashSet<String> machines = (HashSet<String>) PrefSingleton.getSharePrefs(PrefSingleton.MACHINE_LIST_KEY, this);
+        
     }
 }

@@ -4,33 +4,43 @@ import android.content.SharedPreferences;
 import android.content.Context;
 import android.preference.PreferenceManager;
 
+import java.util.HashSet;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Set;
 
 
 public class PrefSingleton {
 
     public static final String machineList = "machineList";
+    public static final String MACHINE_LIST_KEY = "machines";
 
     public static void editSharePrefs(String key, String value, Context act) {
         SharedPreferences.Editor editor = act.getSharedPreferences(machineList, Context.MODE_PRIVATE).edit();
-        editor.putString(key, value);
-        editor.commit();
-        System.out.println("I am setting the value");
+        SharedPreferences prefs = act.getSharedPreferences(machineList, Context.MODE_PRIVATE);
+        Set<String> machines = prefs.getStringSet(key, new HashSet<String>());
+        machines.add(value);
+        editor.putStringSet(key, machines);
+        editor.apply();
     }
 
-    public static String getSharePrefs(String key, Context act) {
+    public static Set<String> getSharePrefs(String key, Context act) {
         SharedPreferences prefs = act.getSharedPreferences(machineList, Context.MODE_PRIVATE);
-        return prefs.getString(key, null);
+        return prefs.getStringSet(key, null);
     }
 
-    public static Map<String, String> getAllpreferences(Context act) {
+    public static void removeMachineFromHistory (String key, String value, Context act) {
+        SharedPreferences.Editor editor = act.getSharedPreferences(machineList, Context.MODE_PRIVATE).edit();
         SharedPreferences prefs = act.getSharedPreferences(machineList, Context.MODE_PRIVATE);
-        Map<String, ?> allEntries = prefs.getAll();
-        HashMap<String, String> machinevalues = new HashMap<String, String>();
-        for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
-            machinevalues.put(entry.getKey(), entry.getValue().toString());
-        }
-        return machinevalues;
+        Set<String> machines = prefs.getStringSet(key, new HashSet<String>());
+        machines.remove(value);
+        editor.putStringSet(key, machines);
+        editor.apply();
+    }
+
+    public static void removeAllMachines(String key, Context act) {
+        SharedPreferences.Editor editor = act.getSharedPreferences(machineList, Context.MODE_PRIVATE).edit();
+        editor.remove(key);
+        editor.apply();
     }
 }
