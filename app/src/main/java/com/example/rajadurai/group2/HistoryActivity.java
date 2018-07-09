@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.example.rajadurai.group2.PrefSingleton;
@@ -35,7 +36,6 @@ public class HistoryActivity extends AppCompatActivity {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    System.out.println("WTF");
                     String name = (String) adapter.getItem(i);
                     Intent intent = new Intent(HistoryActivity.this, AboutActivity.class);
                     intent.putExtra("machine", name);
@@ -43,5 +43,14 @@ public class HistoryActivity extends AppCompatActivity {
                 }
             });
         }
+
+        ImageButton deleteAll = (ImageButton) findViewById(R.id.imageButton3);
+        deleteAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PrefSingleton.removeAllMachines(PrefSingleton.MACHINE_LIST_KEY, HistoryActivity.this);
+                adapter.removeAll();
+            }
+        });
     }
 }

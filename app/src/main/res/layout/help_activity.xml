@@ -20,6 +20,17 @@
         android:id="@+id/helptextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:paddingVertical="70dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:fontFamily="sans-serif"
+        android:text="TextView"
+        android:textAlignment="viewStart"
+        android:textColor="#282727"
+        android:textSize="16dp"
+        android:typeface="sans"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="79dp"
+        tools:paddingTop="25dp" />
 
 </android.support.constraint.ConstraintLayout>

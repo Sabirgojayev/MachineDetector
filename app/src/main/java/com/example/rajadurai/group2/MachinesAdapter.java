@@ -106,6 +106,25 @@ public class MachinesAdapter extends BaseSwipeAdapter {
         return true;
 
     }
+
+    public boolean removeAll(){
+        for (int i = 0; i < items.size(); i++) {
+
+                closeItem(i);
+                items.remove(i);
+                selected.delete(i);
+                for (int j = 0; j < selected.size(); j++) {
+
+                    if (selected.keyAt(j) > i) {
+                        int prevKey = selected.keyAt(j);
+                        selected.delete(prevKey);
+                        selected.put(prevKey-1, true);
+                    }
+                }
+        }
+        return true;
+
+    }
     public void onItemClick(View view,int position){
         if (selected.get(position, false)){
             selected.delete(position);

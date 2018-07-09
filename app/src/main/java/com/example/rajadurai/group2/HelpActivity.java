@@ -11,9 +11,12 @@ public class HelpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.help_activity);
 
-        String helptext = "This application is used to detect machine images using Google AR. \n" +
-                " To use this application you used press the Detect button which will to camera view." +
-                " Scan the machine image and if the image matches you will be given information about the machine.";
+        String helptext = "This application is used to detect machine images using Google AR. \n \n" +
+                "To start with this application you need to press the \'Detect\' button which leads to the camera view." +
+                " Scan the machine image and if the image matches, the application will give information about the machine detected." +
+                "\n \n" +
+                "Press on \'History\' button to view the list of machines detected by the application." +
+                " From here you can also navigate back to the page which has information about the machine. " ;
         TextView t = (TextView) findViewById(R.id.helptextview);
         t.setText(helptext);
     }

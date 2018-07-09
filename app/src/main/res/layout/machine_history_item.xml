@@ -36,8 +36,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="25dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
             android:text="Type"
+            android:textColor="#282727"
             android:textSize="20sp"
             android:textStyle="bold" />
 
